@@ -96,7 +96,7 @@ export default function Home() {
 
   return (
     <div className="container mx-auto py-10">
-      <div className="w-full mx-auto bg-white rounded-lg shadow-lg p-6">
+      <div className="md:w-full mx-auto bg-white rounded-lg shadow-lg p-6">
         <h2 className="text-2xl font-semibold mb-4 text-black">Todo List</h2>
 
         {/* Error message display */}
