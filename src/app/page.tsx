@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import {  useState } from "react";
 
 // Type definition for Todo item
 interface Todo {
@@ -40,12 +40,16 @@ export default function Home() {
 
     if (!text.trim()) {
       setError("Please add some text to your todo.");
+      setTimeout(() => setError(null), 2000); // Clear error after 1 second
+
       return;
     }
 
     const isDuplicate = todos.some((todo) => todo.text.toLowerCase() === text.toLowerCase());
     if (isDuplicate && !editingId) {
       setError("This todo already exists.");
+      setTimeout(() => setError(null), 2000); // Clear error after 1 second
+
       setText("");
       return;
     }
@@ -94,6 +98,8 @@ export default function Home() {
     setError(null);
   };
 
+
+
   return (
     <div className="container mx-auto py-10">
       <div className="md:w-full mx-auto bg-white rounded-lg shadow-lg p-6">
@@ -102,7 +108,7 @@ export default function Home() {
         {/* Error message display */}
         {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
-            <strong className="font-bold">Error</strong>
+            <strong className="font-bold">Error: {" "}</strong>
             <span className="block sm:inline">{error}</span>
           </div>
         )}
